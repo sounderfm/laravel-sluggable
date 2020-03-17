@@ -4,3 +4,4 @@ docs
 vendor
 tests/Integration/temp
 .phpunit.result.cache
+.idea
