@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 trait HasSlug
 {
-    protected SlugOptions $slugOptions;
+    protected $slugOptions;
 
     abstract public function getSlugOptions(): SlugOptions;
 
