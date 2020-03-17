@@ -93,7 +93,9 @@ trait HasSlug
         }
 
         $slugSourceString = collect($this->slugOptions->generateSlugFrom)
-            ->map(fn (string $fieldName): string => data_get($this, $fieldName, ''))
+            ->map(function (string $fieldName) : string {
+                return data_get($this, $fieldName, '');
+            })
             ->implode($this->slugOptions->slugSeparator);
 
         return substr($slugSourceString, 0, $this->slugOptions->maximumLength);
@@ -116,7 +118,7 @@ trait HasSlug
         $key = $this->getKey();
 
         if ($this->incrementing) {
-            $key ??= '0';
+            $key = $key ?? '0';
         }
 
         $query = static::where($this->slugOptions->slugField, $slug)
